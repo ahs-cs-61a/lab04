@@ -18,13 +18,12 @@ def outro():
     print("\nall questions for this question set complete")
 
 
-# reference sequences
-a = [1, 5, 4, [2, 3], 3]
-pokemon = {'pikachu': 25, 'dragonair': 148}
-
 # wwpd questions
 
 def wwpd_lists():
+
+    # reference sequences
+    a = [1, 5, 4, [2, 3], 3]
 
     intro()
 
@@ -54,11 +53,15 @@ def wwpd_lists():
 
 def wwpd_dictionaries():
     
+    # reference sequences
+    pokemon = {'pikachu': 25, 'dragonair': 148}
+
     intro()
 
     print(">>> pokemon = {'pikachu': 25, 'dragonair': 148}")
+    print(">>> pokemon")
     x = input()
-    while x != "{'pikachu': 25, 'dragonair': 148}":
+    while x != str(pokemon):
         x = repeat()
 
     print(">>> 'mewtwo' in pokemon")
@@ -71,12 +74,96 @@ def wwpd_dictionaries():
     while x != str(len(pokemon)):
         x = repeat()
 
+    pokemon['mew'] = pokemon['pikachu']
+    pokemon[25] = 'pikachu'
     print(">>> pokemon['mew'] = pokemon['pikachu']")
     print(">>> pokemon[25] = 'pikachu'")
     print(">>> pokemon")
-
-    pokemon['mew'] = pokemon['pikachu']
-    pokemon[25] = 'pikachu'
     x = input()
-    while x != "{'pikachu': 25, 'dragonair': 148, 'mew': 25, 25: 'pikachu'}":
+    while x != str(pokemon):
         x = repeat()
+
+    pokemon['mewtwo'] = pokemon['mew'] * 2
+    print(">>> pokemon['mewtwo'] = pokemon['mew'] * 2")
+    print(">>> pokemon")
+    x = input()
+    while x != str(pokemon):
+        x = repeat()
+
+    pokemon[['firetype', 'flying']] = 146
+    print(">>> pokemon[['firetype', 'flying']] = 146")
+    x = input()
+    while x != str(pokemon):
+        x = repeat()
+
+    outro()
+
+
+def wwpd_list_mutation():
+
+    #reference sequences
+    lst = [5, 6, 7, 8]
+
+    intro()
+
+    lst.append(6)
+    print(">>> lst.append(6)")
+    x = input()
+    while x != "nothing":
+        x = repeat()
+
+    print(">>> lst")
+    x = input()
+    while x != str(lst):
+        x = repeat()
+
+    lst.insert(0, 9)
+    print(">>> lst.insert(0, 9)")
+    print(">>> lst")
+    x = input()
+    while x != str(lst):
+        x = repeat()
+
+    y = lst.pop(2)
+    print(">>> x = lst.pop(2)")
+    print(">>> lst")
+    x = input()
+    while x != str(lst):
+        x = repeat()
+
+    lst.remove(y)
+    print(">>> lst.remove(x)")
+    print(">>> lst")
+    x = input()
+    while x != str(lst):
+        x = repeat()
+
+    a, b = lst, lst[:]
+    print(">>> a is lst")
+    x = input()
+    while x != str(a is lst):
+        x = repeat()
+
+    print(">>> b == lst")
+    x = input()
+    while x != str(b == lst):
+        x = repeat()
+
+    lst = [1, 2, 3]
+    lst.extend([4,5])
+    print(">>> lst = [1, 2, 3]")
+    print(">>> lst.extend([4,5])")
+    print(">>> lst")
+    x = input()
+    while x != str(lst):
+        x = repeat()
+
+    lst.extend([lst.append(9), lst.append(10)])
+    print(">>> lst.extend([lst.append(9), lst.append(10)])")
+    print(">>> lst")
+    x = input()
+    while x != str(lst):
+        x = repeat()
+
+
+    
