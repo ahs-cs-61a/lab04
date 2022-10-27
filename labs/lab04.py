@@ -116,7 +116,7 @@ def couple(s, t): # q9
     """Return a list of two-element lists in which the i-th element is [s[i], t[i]].
 
     >>> a = [1, 2, 3]
-    >>> b = [4, 5, 6]
+    >>> b = [1, 2, 3]
     >>> couple(a, b)
     [[1, 4], [2, 5], [3, 6]]
     >>> c = ['c', 6]
@@ -124,7 +124,7 @@ def couple(s, t): # q9
     >>> couple(c, d)
     [['c', 's'], [6, '1']]
     """
-    assert len(s) == len(t)
+    assert len(s) == len(t) # ensures that s and t are lists of the same length
     "*** YOUR CODE HERE ***"
 
 
