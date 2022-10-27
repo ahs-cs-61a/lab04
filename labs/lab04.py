@@ -4,50 +4,44 @@
 # disc04: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc04/
 
 
-def my_map(fn, seq): # q1
+def map_new(fn, seq): # q1
     """Applies fn onto each element in seq and returns a list.
-    >>> my_map(lambda x: x*x, [1, 2, 3])
+    >>> map_new(lambda x: x*x, [1, 2, 3])
     [1, 4, 9]
     """
     "*** YOUR CODE HERE ***"
 
 
-def my_filter(pred, seq): # q2
+def filter_new(pred, seq): # q2
     """Keeps elements in seq only if they satisfy pred.
-    >>> my_filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  # new list has only even-valued elements
+    >>> filter_new(lambda x: x % 2 == 0, [1, 2, 3, 4])  # new list has only even-valued elements
     [2, 4]
     """
     "*** YOUR CODE HERE ***"
 
 
-def my_reduce(combiner, seq): # q3
+def reduce_new(combiner, seq): # q3
     """Combines elements in seq using combiner.
     seq will have at least one element.
-    >>> my_reduce(lambda x, y: x + y, [1, 2, 3, 4])  # 1 + 2 + 3 + 4
+    >>> reduce_new(lambda x, y: x + y, [1, 2, 3, 4])  # 1 + 2 + 3 + 4
     10
-    >>> my_reduce(lambda x, y: x * y, [1, 2, 3, 4])  # 1 * 2 * 3 * 4
+    >>> reduce_new(lambda x, y: x * y, [1, 2, 3, 4])  # 1 * 2 * 3 * 4
     24
-    >>> my_reduce(lambda x, y: x * y, [4])
+    >>> reduce_new(lambda x, y: x * y, [4])
     4
-    >>> my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]) # (1 + 2 * 2) + 2 * 3
+    >>> reduce_new(lambda x, y: x + 2 * y, [1, 2, 3]) # (1 + 2 * 2) + 2 * 3
     11
     """
     "*** YOUR CODE HERE ***"
 
 
-def my_reduce(combiner, seq): # q4, do NOT use recursion or loops
-    """Combines elements in seq using combiner.
-    seq will have at least one element.
-    >>> my_reduce(lambda x, y: x + y, [1, 2, 3, 4])  # 1 + 2 + 3 + 4
-    10
-    >>> my_reduce(lambda x, y: x * y, [1, 2, 3, 4])  # 1 * 2 * 3 * 4
-    24
-    >>> my_reduce(lambda x, y: x * y, [4])
-    4
-    >>> my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]) # (1 + 2 * 2) + 2 * 3
-    11
+def count_palindromes(L):  # q4, do NOT use recursion or iteration
+    """The number of palindromic words in the sequence of strings (ignoring case).
+
+    >>> count_palindromes(("Acme", "Madam", "Pivot", "Pip"))
+    2
     """
-    "*** YOUR CODE HERE ***"
+    return # one liner
 
 
 def even_weighted(s): # q5
@@ -93,7 +87,7 @@ def flatten(s): # q7
     "*** YOUR CODE HERE ***"
 
 
-def insert_items(lst, entry, elem): # q8, do NOT create a new list
+def insert_items(lst, entry, elem): # q8, do NOT create or return a new list, use mutation
     """Inserts elem into lst after each occurrence of entry and then returns lst.
 
     >>> test_lst = [1, 5, 8, 5, 2, 3]
