@@ -63,7 +63,8 @@ def max_product(s): # q6
     >>> max_product([])
     1
     """
-
+    "***YOUR CODE HERE***"
+    
 
 # lab04: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab04/
 
