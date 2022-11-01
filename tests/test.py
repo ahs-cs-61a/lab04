@@ -101,6 +101,3 @@ def test_remove_odd_indices():
     assert m == [6, 8]
     assert lab.remove_odd_indices([9, 8, 7, 6, 5, 4, 3], False) == [8, 6, 4]
     assert lab.remove_odd_indices([2], False) == []
-    
-
-    
