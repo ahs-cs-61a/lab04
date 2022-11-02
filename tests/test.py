@@ -25,7 +25,7 @@ def test_ban_recursion():
 
 
 def test_map_new():
-    assert lab.map_new(lambda x: x*x, [1, 2, 3]) == [1, 4, 9]
+    assert lab.map_new(lambda x: x * x, [1, 2, 3]) == [1, 4, 9]
     assert lab.map_new(lambda x: x + 6, [6, 2, 3]) == [12, 8, 9]
 
 
@@ -45,7 +45,7 @@ def test_even_weighted():
     x = [1, 2, 3, 4, 5, 6]
     y = [1, 3, 5, 8]
     assert lab.even_weighted(x) == [0, 6, 20]
-    assert lab.even_weighted(y) == [24]
+    assert lab.even_weighted(y) == [0, 10]
 
 
 def test_max_product():
@@ -78,7 +78,7 @@ def test_insert_items():
 
 
 def test_couple():
-    assert lab.couple([1, 2, 3], [1, 2, 3]) == [[1, 4], [2, 5], [3, 6]]
+    assert lab.couple([1, 2, 3], [4, 5, 6]) == [[1, 4], [2, 5], [3, 6]]
     assert lab.couple(['c', 6], ['s', '1']) == [['c', 's'], [6, '1']]
     
 

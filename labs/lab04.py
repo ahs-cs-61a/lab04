@@ -35,13 +35,13 @@ def reduce_new(combiner, seq): # q3
     "*** YOUR CODE HERE ***"
 
 
-def count_palindromes(L):  # q4, do NOT use recursion or iteration
+def count_palindromes(L):  # q4, do NOT use recursion or iteration, use of functions above allowed
     """The number of palindromic words in the sequence of strings (ignoring case).
 
     >>> count_palindromes(("Acme", "Madam", "Pivot", "Pip"))
     2
     """
-    return # one liner
+    return len(filter_new(lambda s: s.lower() == s[::-1].lower(), L))
 
 
 def even_weighted(s): # q5
@@ -116,7 +116,7 @@ def couple(s, t): # q9
     """Return a list of two-element lists in which the i-th element is [s[i], t[i]].
 
     >>> a = [1, 2, 3]
-    >>> b = [1, 2, 3]
+    >>> b = [4, 5, 6]
     >>> couple(a, b)
     [[1, 4], [2, 5], [3, 6]]
     >>> c = ['c', 6]
