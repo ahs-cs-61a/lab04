@@ -41,6 +41,9 @@ def test_reduce_new():
     assert lab.reduce_new(lambda x, y: x + 2 * y, [1, 2, 3]) == 11
 
 
+def test_count_palindromes():
+    assert lab.count_palindromes(("Acme", "Madam", "Pivot", "Pip")) == 2
+    
 def test_even_weighted():
     x = [1, 2, 3, 4, 5, 6]
     y = [1, 3, 5, 8]
