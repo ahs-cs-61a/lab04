@@ -31,7 +31,7 @@ def wwpd_lists():
     print(">>> print(a[0], a[-1])")
     x = input()
     while x != "1 3":
-        x - repeat()
+        x = repeat()
     
     print(">>> len(a)")
     x = input()
@@ -61,7 +61,7 @@ def wwpd_dictionaries():
     print(">>> pokemon = {'pikachu': 25, 'dragonair': 148}")
     print(">>> pokemon")
     x = input()
-    while x != str(pokemon):
+    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
         x = repeat()
 
     print(">>> 'mewtwo' in pokemon")
@@ -80,20 +80,20 @@ def wwpd_dictionaries():
     print(">>> pokemon[25] = 'pikachu'")
     print(">>> pokemon")
     x = input()
-    while x != str(pokemon):
+    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
         x = repeat()
 
     pokemon['mewtwo'] = pokemon['mew'] * 2
     print(">>> pokemon['mewtwo'] = pokemon['mew'] * 2")
     print(">>> pokemon")
     x = input()
-    while x != str(pokemon):
+    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
         x = repeat()
 
     pokemon[['firetype', 'flying']] = 146
     print(">>> pokemon[['firetype', 'flying']] = 146")
     x = input()
-    while x != str(pokemon):
+    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
         x = repeat()
 
     outro()
@@ -114,28 +114,28 @@ def wwpd_list_mutation():
 
     print(">>> lst")
     x = input()
-    while x != str(lst):
+    while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
     lst.insert(0, 9)
     print(">>> lst.insert(0, 9)")
     print(">>> lst")
     x = input()
-    while x != str(lst):
+    while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
     y = lst.pop(2)
     print(">>> x = lst.pop(2)")
     print(">>> lst")
     x = input()
-    while x != str(lst):
+    while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
     lst.remove(y)
     print(">>> lst.remove(x)")
     print(">>> lst")
     x = input()
-    while x != str(lst):
+    while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
     a, b = lst, lst[:]
@@ -155,14 +155,14 @@ def wwpd_list_mutation():
     print(">>> lst.extend([4,5])")
     print(">>> lst")
     x = input()
-    while x != str(lst):
+    while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
     lst.extend([lst.append(9), lst.append(10)])
     print(">>> lst.extend([lst.append(9), lst.append(10)])")
     print(">>> lst")
     x = input()
-    while x != str(lst):
+    while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
 
