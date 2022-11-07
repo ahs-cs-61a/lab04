@@ -93,7 +93,7 @@ def wwpd_dictionaries():
     pokemon[['firetype', 'flying']] = 146
     print(">>> pokemon[['firetype', 'flying']] = 146")
     x = input()
-    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
+    while x != 'error':
         x = repeat()
 
     outro()
@@ -107,6 +107,7 @@ def wwpd_list_mutation():
     intro()
 
     lst.append(6)
+    print(">>> lst = [5, 6, 7, 8]")
     print(">>> lst.append(6)")
     x = input()
     while x != "nothing":
@@ -139,6 +140,7 @@ def wwpd_list_mutation():
         x = repeat()
 
     a, b = lst, lst[:]
+    print(">>> a, b = lst, lst[:]")
     print(">>> a is lst")
     x = input()
     while x != str(a is lst):
@@ -165,5 +167,4 @@ def wwpd_list_mutation():
     while x.replace(" ", "") != str(lst).replace(" ", ""):
         x = repeat()
 
-
-    
+    outro()
