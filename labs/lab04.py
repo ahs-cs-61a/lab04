@@ -41,7 +41,7 @@ def count_palindromes(L):  # q4, do NOT use recursion or iteration, use of funct
     >>> count_palindromes(("Acme", "Madam", "Pivot", "Pip"))
     2
     """
-    return len(filter_new(lambda s: s.lower() == s[::-1].lower(), L))
+    return # one liner
 
 
 def even_weighted(s): # q5
