@@ -90,7 +90,6 @@ def wwpd_dictionaries():
     while x.replace(" ", "") != str(pokemon).replace(" ", ""):
         x = repeat()
 
-    pokemon[['firetype', 'flying']] = 146
     print(">>> pokemon[['firetype', 'flying']] = 146")
     x = input()
     while x != 'error':
