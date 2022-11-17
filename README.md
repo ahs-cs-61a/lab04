@@ -2,10 +2,10 @@
 
 this assignment will be on containers, sequences, and mutability
   
-this assignment merges problems from lab04, disc04, and hw04 into one; refer to these links for problem descriptions and requirements:
+this assignment merges problems from disc04, lab04, and hw04 into one; refer to these links for problem descriptions and requirements:
   
-- lab04: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab04/
 - disc04: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc04/
+- lab04: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab04/
 - hw04: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw04/
     
 lecture slides: 
