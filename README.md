@@ -26,4 +26,4 @@ reminders:
 - for individual tests: ```python3 -m pytest -s tests/test.py -k test_name_of_function```
 - for all tests: ```python3 -m pytest -s tests/test.py```
 - refer to lab00 setup description for help
-- don't forget to push to GitHub and submit turn-in in GradeScope
+- don't forget to push to GitHub from Codespaces and submit turn-in in GradeScope
