@@ -1,4 +1,4 @@
-# lab04 - containers, sequences, mutability
+# lab04: containers, sequences, mutability
 
 
 # disc04: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc04/
