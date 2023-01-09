@@ -3,7 +3,6 @@
 
 # disc04: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc04/
 
-
 def map_new(fn, seq): # q1
     """Applies fn onto each element in seq and returns a list.
     >>> map_new(lambda x: x*x, [1, 2, 3])
@@ -68,7 +67,6 @@ def max_product(s): # q6
 
 # lab04: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab04/
 
-
 def flatten(s): # q7
     """Returns a flattened version of list s.
 
@@ -129,7 +127,6 @@ def couple(s, t): # q9
 
 
 # hw04: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw04/
-
 
 def merge(lst1, lst2): # q10
     """Merges two sorted lists.
