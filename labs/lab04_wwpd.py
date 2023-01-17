@@ -1,169 +1,144 @@
 # lab04 WWPD?
 
-# preliminaries
+
+# IMPORTS
+
+import inspect
+import tests.wwpd_storage as s
+
+st = s.wwpd_storage 
+
+
+# COLORED PRINTS - custom text type to terminal: https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal, ANSI colors: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+
+class bcolors:
+    HIGH_MAGENTA = '\u001b[45m'
+    HIGH_GREEN = '\u001b[42m'
+    HIGH_YELLOW = '\u001b[43;1m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    RESET = '\u001b[0m'
+
+
+# INCORRECT ANSWER LOOP, INSTRUCTIONS, COMPLETE, OPTIONS
 
 def repeat():
-    print("try again:")
+    print("Try again:")
     return input()
 
+def intro(name):
+    print("\nWhat Would Python Display?: " + name)
+    print("Type the expected output, 'function' if you think the answer is a function object, 'infinite loop' if it loops forever, 'nothing' if nothing is displayed, or 'error' if it errors; use single quotes '' when needed.\n")
 
-def intro():
-    print("What Would Python Display?")
-    print(
-        "type the expected output, 'function' if you think the answer is a function object, 'infinite loop' if it loops forever, 'nothing' if nothing is displayed, or 'error' if it errors; use single quotes '' when needed\n"
-    )
+def complete():
+    print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: All questions for this question set complete." + bcolors.ENDC)
+
+def options():
+    print(bcolors.HIGH_MAGENTA + bcolors.BOLD + "\nMESSAGE: All questions for this question set complete. Restart question set?" + bcolors.ENDC)
+    guess = input("Y/N?\n")
+    guess = guess.lower()
+    while guess != "y" and guess != "n":
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "\nUnknown input, please try again." + bcolors.ENDC)
+        guess = input()
+    if guess == "y":
+        return "restart"
+    return False
 
 
-def outro():
-    print("\nall questions for this question set complete")
+# WWPD? ALGORITHM 
+
+def wwpd(name, question_set, stored_list):
+
+    intro(name)
+
+    matched = str([i[:-1] for i in question_set])[1:-1] in str([i[:-1] for i in stored_list])
+    restart = matched and options() == "restart"
+    done = False
+
+    for q in question_set:
+        q[4] = True
+        if q not in stored_list or restart:
+            done = True 
+            if q[1]:
+                print(q[1])
+            if q[2]:
+                print(q[2])
+            guess = input()
+            while guess != q[3]:
+                guess = repeat()
+            if not matched:
+                op = open("tests/wwpd_storage.py", "w")
+                for j in range(len(stored_list)):
+                    if q[0] < stored_list[j][0]:
+                        stored_list.insert(j, q)
+                        break
+                if q not in stored_list: 
+                    stored_list.append(q)
+                op.write("wwpd_storage = " + str(stored_list))
+                op.close()
+    if done:
+        complete()
 
 
+# REFERENCE FUNCTIONS, CLASSES, METHODS, SEQUENCES, ETC.
+
+# https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc04/
+
+a = [1, 5, 4, [2, 3], 3]
+
+
+# https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc04/
+
+pokemon = {'pikachu': 25, 'dragonair': 148}
+
+
+# QUESTION SET - ELEMENT FORMAT: [<QUESTION NUMBER>, <INITIAL PRINTS> (usually empty), <QUESTION>, <ANSWER>]
+# INSPECT MODULE - convert function/class body into String: https://docs.python.org/3/library/inspect.html 
 # wwpd questions
 
+lists_qs = [
+    [1, ">>> a = [1, 5, 4, [2, 3], 3]", ">>> print(a[0], a[-1])", "1 3"],
+    [2, "", ">>> len(a)", str(len(a))],
+    [3, "", ">>> 2 in a", str(2 in a)],
+    [4, "", ">>> a[3][0]", str(a[3][0])]
+]
+
+dictionaries_qs = [
+    [5, ">>> pokemon = {'pikachu': 25, 'dragonair': 148}", ">>> pokemon", str(pokemon)],
+    [6, "", ">>> 'mewtwo' in pokemon", str('mewtwo' in pokemon)],
+    [7, "", ">>> len(pokemon)", str(len(pokemon))],
+    [8, ">>> pokemon['mew'] = pokemon['pikachu']\n>>> pokemon[25] = 'pikachu'", ">>> pokemon", "{'pikachu': 25, 'dragonair': 148, 'mew': 25, 25: 'pikachu'}"],
+    [9, ">>> pokemon['mewtwo'] = pokemon['mew'] * 2", ">>> pokemon", "{'pikachu': 25, 'dragonair': 148, 'mew': 25, 25: 'pikachu', 'mewtwo': 50}"],
+    [10, "", ">>> pokemon[['firetype', 'flying']] = 146", "error"]
+]
+
+list_mutation_qs = [
+    [11, ">>> lst = [5, 6, 7, 8]", ">>> lst.append(6)", "nothing"],
+    [12, "", ">>> lst", "[5, 6, 7, 8, 6]"],
+    [13, ">>> lst.insert(0, 9)", ">>> lst", "[9, 5, 6, 7, 8, 6]"],
+    [14, ">>> x = lst.pop(2)", ">>> lst", "[9, 5, 7, 8, 6]"],
+    [15, ">>> lst.remove(x)", ">>> lst", "[9, 5, 7, 8]"],
+    [16, ">>> a, b = lst, lst[:]", ">>> a is lst", "True"],
+    [17, "", ">>> b == lst", "True"],
+    [18, ">>> lst = [1, 2, 3]\n>>> lst.extend([4,5])", ">>> lst", "[1, 2, 3, 4, 5]"],
+    [19, ">>> lst.extend([lst.append(9), lst.append(10)])", ">>> lst", "[1, 2, 3, 4, 5, 9, 10, None, None]"]
+]
+
+all_qs = [lists_qs, dictionaries_qs, list_mutation_qs]
+
+for set in all_qs:
+    for q in set:
+        q.append(False)
+
+
+# WWPD? QUESTIONS 
+
 def wwpd_lists():
-
-    # reference sequences
-    a = [1, 5, 4, [2, 3], 3]
-
-    intro()
-
-    print(">>> a = [1, 5, 4, [2, 3], 3]")
-    print(">>> print(a[0], a[-1])")
-    x = input()
-    while x != "1 3":
-        x = repeat()
-    
-    print(">>> len(a)")
-    x = input()
-    while x != str(len(a)):
-        x = repeat()
-
-    print(">>> 2 in a")
-    x = input()
-    while x != str(2 in a):
-        x = repeat()
-
-    print(">>> a[3][0]")
-    x = input()
-    while x != str(a[3][0]):
-        x = repeat()
-    
-    outro()
-
+    wwpd("Lists", lists_qs, st)
 
 def wwpd_dictionaries():
-    
-    # reference sequences
-    pokemon = {'pikachu': 25, 'dragonair': 148}
-
-    intro()
-
-    print(">>> pokemon = {'pikachu': 25, 'dragonair': 148}")
-    print(">>> pokemon")
-    x = input()
-    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
-        x = repeat()
-
-    print(">>> 'mewtwo' in pokemon")
-    x = input()
-    while x != str('mewtwo' in pokemon):
-        x = repeat()
-
-    print(">>> len(pokemon)")
-    x = input()
-    while x != str(len(pokemon)):
-        x = repeat()
-
-    pokemon['mew'] = pokemon['pikachu']
-    pokemon[25] = 'pikachu'
-    print(">>> pokemon['mew'] = pokemon['pikachu']")
-    print(">>> pokemon[25] = 'pikachu'")
-    print(">>> pokemon")
-    x = input()
-    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
-        x = repeat()
-
-    pokemon['mewtwo'] = pokemon['mew'] * 2
-    print(">>> pokemon['mewtwo'] = pokemon['mew'] * 2")
-    print(">>> pokemon")
-    x = input()
-    while x.replace(" ", "") != str(pokemon).replace(" ", ""):
-        x = repeat()
-
-    print(">>> pokemon[['firetype', 'flying']] = 146")
-    x = input()
-    while x != 'error':
-        x = repeat()
-
-    outro()
-
+    wwpd("Dictionaries", dictionaries_qs, st)
 
 def wwpd_list_mutation():
-
-    #reference sequences
-    lst = [5, 6, 7, 8]
-
-    intro()
-
-    lst.append(6)
-    print(">>> lst = [5, 6, 7, 8]")
-    print(">>> lst.append(6)")
-    x = input()
-    while x != "nothing":
-        x = repeat()
-
-    print(">>> lst")
-    x = input()
-    while x.replace(" ", "") != str(lst).replace(" ", ""):
-        x = repeat()
-
-    lst.insert(0, 9)
-    print(">>> lst.insert(0, 9)")
-    print(">>> lst")
-    x = input()
-    while x.replace(" ", "") != str(lst).replace(" ", ""):
-        x = repeat()
-
-    y = lst.pop(2)
-    print(">>> x = lst.pop(2)")
-    print(">>> lst")
-    x = input()
-    while x.replace(" ", "") != str(lst).replace(" ", ""):
-        x = repeat()
-
-    lst.remove(y)
-    print(">>> lst.remove(x)")
-    print(">>> lst")
-    x = input()
-    while x.replace(" ", "") != str(lst).replace(" ", ""):
-        x = repeat()
-
-    a, b = lst, lst[:]
-    print(">>> a, b = lst, lst[:]")
-    print(">>> a is lst")
-    x = input()
-    while x != str(a is lst):
-        x = repeat()
-
-    print(">>> b == lst")
-    x = input()
-    while x != str(b == lst):
-        x = repeat()
-
-    lst = [1, 2, 3]
-    lst.extend([4,5])
-    print(">>> lst = [1, 2, 3]")
-    print(">>> lst.extend([4,5])")
-    print(">>> lst")
-    x = input()
-    while x.replace(" ", "") != str(lst).replace(" ", ""):
-        x = repeat()
-
-    lst.extend([lst.append(9), lst.append(10)])
-    print(">>> lst.extend([lst.append(9), lst.append(10)])")
-    print(">>> lst")
-    x = input()
-    while x.replace(" ", "") != str(lst).replace(" ", ""):
-        x = repeat()
-
-    outro()
+    wwpd("List Mutation", list_mutation_qs, st)

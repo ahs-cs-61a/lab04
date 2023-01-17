@@ -26,3 +26,17 @@ reminders:
 - use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=display) if you are having trouble drawing or figuring out the environment diagrams
 - refer to lab00 setup description for help
 - don't forget to push to GitHub from Codespaces and submit turn-in in GradeScope
+  
+test commands:
+  
+- test_map_new
+- test_filter_new
+- test_reduce_new
+- test_count_palindromes
+- test_even_weighted
+- test_max_product
+- test_flatten
+- test_insert_items
+- test_couple
+- test_merge
+- test_remove_odd_indices
