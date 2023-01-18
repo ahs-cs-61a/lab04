@@ -26,9 +26,6 @@ class bcolors:
     UNDERLINE = '\033[4m'
     RESET = '\u001b[0m'
 
-
-# ERROR PRINTS:
-
 def print_error(message):
     print("\n" + bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR:" + bcolors.RESET + bcolors.YELLOW + bcolors.BOLD + " " + message + bcolors.ENDC)
 
@@ -178,11 +175,6 @@ def test_commit():
     except git.GitCommandError: 
         # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
         print_message("Already up to date. No updates committed.")
-    except AssertionError:
-        # IF TEST(S) FAILED
-        if not wwpd_complete:
-            print_error("Test(s) failed; check your work.")
-        raise AssertionError("")
     except git.NoSuchPathError:
         # IF GITHUB USERNAME IS NOT FOUND
         print_error("Incorrect GitHub username; try again.")
