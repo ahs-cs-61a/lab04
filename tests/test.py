@@ -3,11 +3,8 @@
 
 # IMPORTS
 
-import labs.lab04 as lab
-import tests.wwpd_storage as s
-import re
-import inspect
-import git
+import labs.lab04 as lab, tests.wwpd_storage as s
+import re, inspect, git
 
 st = s.wwpd_storage
 
