@@ -27,7 +27,7 @@ This assignment merges problems from disc04, lab04, and hw04 into one; refer to 
 - refer to lab00 setup description for help
 - don't forget to push to GitHub from Codespaces and submit turn-in in on GradeScope
   
-test commands:
+## test commands:
   
 - map_new
 - filter_new
